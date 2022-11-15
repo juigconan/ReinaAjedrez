@@ -55,29 +55,31 @@ public class Reina {
 			throw new IllegalArgumentException("ERROR: El número de pasos debe estar comprendido entre 1 y 7.");
 		}
 		try {
-			if(direccion == Direccion.NORTE) {
+			switch (direccion) {
+			case NORTE:
 				setPosicion(new Posicion((posicion.getFila()+ pasos),posicion.getColumna()));
-			}
-			if(direccion == Direccion.SUR) {
+				break;
+			case SUR:
 				setPosicion(new Posicion((posicion.getFila()- pasos),posicion.getColumna()));
-			}
-			if(direccion == Direccion.ESTE) {
+				break;
+			case ESTE:
 				setPosicion(new Posicion(posicion.getFila(),(char)(posicion.getColumna() + pasos)));
-			}
-			if(direccion == Direccion.OESTE) {
+				break;
+			case OESTE:
 				setPosicion(new Posicion(posicion.getFila(),(char)(posicion.getColumna() - pasos)));
-			}
-			if(direccion == Direccion.NORESTE) {
+				break;
+			case NORESTE:
 				setPosicion(new Posicion((posicion.getFila() + pasos),(char)(posicion.getColumna()+pasos)));
-			}
-			if(direccion == Direccion.NOROESTE) {
-				setPosicion(new Posicion((posicion.getFila() + pasos),(char)(posicion.getColumna()-pasos)));
-			}
-			if(direccion == Direccion.SURESTE) {
+				break;
+			case SURESTE:
 				setPosicion(new Posicion((posicion.getFila() - pasos),(char)(posicion.getColumna() + pasos)));
-			}
-			if(direccion == Direccion.SUROESTE) {
+				break;
+			case NOROESTE:
+				setPosicion(new Posicion((posicion.getFila() + pasos),(char)(posicion.getColumna()-pasos)));
+				break;
+			case SUROESTE:
 				setPosicion(new Posicion((posicion.getFila() - pasos),(char)(posicion.getColumna() - pasos)));
+				break;
 			}
 		} catch (IllegalArgumentException e) {
 			throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");

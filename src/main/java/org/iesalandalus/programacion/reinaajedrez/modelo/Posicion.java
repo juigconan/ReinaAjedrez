@@ -7,11 +7,6 @@ public class Posicion {
 	private int fila;
 	private char columna;
 	
-	private static final int MAX_FILA = 8;
-	private static final int MIN_FILA = 1;
-	private static final char MAX_COLUMNA = 'h';
-	private static final char MIN_COLUMNA = 'a';
-	
 	public Posicion (int fila, char columna) {
 		setFila(fila);
 		setColumna(columna);
@@ -29,7 +24,7 @@ public class Posicion {
 		return fila;
 	}
 	private void setFila(int fila) {
-		if (fila < MIN_FILA | fila > MAX_FILA) {
+		if (fila < 1 | fila > 8) {
 			throw new IllegalArgumentException("ERROR: Fila no válida.");
 		}
 		this.fila = fila;
@@ -38,7 +33,7 @@ public class Posicion {
 		return columna;
 	}
 	private void setColumna(char columna) {
-		if (columna < MIN_COLUMNA | columna > MAX_COLUMNA) {
+		if (columna < 'a' | columna > 'h') {
 			throw new IllegalArgumentException("ERROR: Columna no válida.");
 		}
 		this.columna = columna;

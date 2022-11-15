@@ -53,9 +53,37 @@ public class Consola {
 		System.out.println();
 		System.out.println("-------------------------");
 		System.out.println();
-		
-		for(int i = 0; i < Direccion.l(); i++) {
-			
+		//Esto se podria hacer con 8 syso pero ueria ver si era capaz de hacerlo así
+		for(int i = 0; i < Direccion.values().length; i++) {
+			System.out.println((i+1) + " - " + Direccion.values()[i].toString().substring(0,1)+Direccion.values()[i].toString().substring(1,(Direccion.values()[i].toString().length())).toLowerCase());
 		}
+	}
+	
+	public static int elegirDireccion() {
+		int opcion;
+		
+		System.out.println("Escoge una opcion");
+		
+		opcion = Entrada.entero();
+		
+		while(opcion < 1 | opcion > 8) {
+			System.out.println("Opcion no valida, vuelve a escoger.");
+			opcion = Entrada.entero();
+		}
+		return opcion;
+	}
+	
+	public static int elegirPasos() {
+		int pasos;
+		
+		System.out.println("Escoge cuantos pasos desplazarte");
+		
+		pasos = Entrada.entero();
+	
+		return pasos;
+	}
+	
+	public static void despedirse() {
+		System.out.println("Hasta luego Lucas!!!");
 	}
 }
