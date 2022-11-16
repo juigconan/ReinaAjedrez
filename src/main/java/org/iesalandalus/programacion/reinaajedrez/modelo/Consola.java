@@ -34,7 +34,7 @@ public class Consola {
 		return opcion;
 	}
 
-	public static Color elegirOpcion() {
+	public static Color elegirColor() {
 		int opcion;
 		Color color;
 

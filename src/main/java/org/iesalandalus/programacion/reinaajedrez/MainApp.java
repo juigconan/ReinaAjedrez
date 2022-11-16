@@ -21,7 +21,7 @@ public class MainApp {
 			mostrarReina();
 			break;
 		case 2:// reina color
-			reina = crearReinaColor(Consola.elegirOpcion());
+			reina = crearReinaColor(Consola.elegirColor());
 			mostrarReina();
 			break;
 		case 3:// mover reina
