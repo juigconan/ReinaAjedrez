@@ -28,6 +28,8 @@ public class MainApp {
 			try {
 				mover();
 			} catch (NullPointerException e) {
+				System.out.println(e.getMessage());
+				break;
 			}
 			mostrarReina();
 			break;
@@ -53,7 +55,7 @@ public class MainApp {
 		Direccion direccion;
 		int pasos;
 		if (reina == null) {
-			throw new NullPointerException();
+			throw new NullPointerException("ERROR: No se puede mover la reina ya que no existe.");
 		}
 		Consola.mostrarMenuDirecciones();
 		direccion = Consola.elegirDireccion();

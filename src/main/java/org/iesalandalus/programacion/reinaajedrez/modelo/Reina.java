@@ -54,6 +54,7 @@ public class Reina {
 		if (pasos < 1 | pasos > 7) {
 			throw new IllegalArgumentException("ERROR: El número de pasos debe estar comprendido entre 1 y 7.");
 		}
+		/* Asi lo haria yo, pero es ierto que de la otra forma el codigo es más claro
 		try {
 			switch (direccion) {
 			case NORTE:
@@ -84,7 +85,44 @@ public class Reina {
 		} catch (IllegalArgumentException e) {
 			throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
 		}
-		
+		*/
+		int nuevaFila = posicion.getFila();
+		char nuevaColumna = posicion.getColumna();
+		switch (direccion) {
+		case NORTE:
+			nuevaFila += pasos;
+			break;
+		case SUR:
+			nuevaFila -= pasos;
+			break;
+		case ESTE:
+			nuevaColumna += pasos;
+			break;
+		case OESTE:
+			nuevaColumna -= pasos;
+			break;
+		case NORESTE:
+			nuevaFila += pasos;
+			nuevaColumna += pasos;
+			break;
+		case SURESTE:
+			nuevaFila -= pasos;
+			nuevaColumna += pasos;
+			break;
+		case NOROESTE:
+			nuevaFila += pasos;
+			nuevaColumna -= pasos;
+			break;
+		case SUROESTE:
+			nuevaFila -= pasos;
+			nuevaColumna -= pasos;
+			break;
+		}
+		try {
+			setPosicion(new Posicion(nuevaFila, nuevaColumna));
+		} catch (IllegalArgumentException e) {
+			throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
+		}
 	}
 
 	@Override
